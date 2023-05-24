@@ -1,5 +1,5 @@
 {
-    "name": "node-red-contrib-flow-asserter",
+    "name": "autana-flow-asserter",
     "version": "0.4.1",
     "description": "This module is a node module that supports flow testing on the Node-RED editor UI. You can test the flow with multiple test-cases and without any changes when switching between test  and production.",
     "main": "node.js",
