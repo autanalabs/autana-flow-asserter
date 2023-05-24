@@ -1,6 +1,8 @@
 node-red-contrib-flow-asserter
 ====
 
+警告: これは https://www.npmjs.com/package/node-red-contrib-flow-asserter のフォークです
+
 このモジュールは、Node-REDエディタUI上でフローの実行テストを支援するノードモジュールです。
 
 ## Description
@@ -29,6 +31,14 @@ Node-REDを利用するとき、ユーザはエディタ上でいくつかのノ
 このモジュールには**Flow-asserter inノード**（ボタン付きのノード）と**Flow-asserter outノード**（入力ポートと出力ポートが1つずつあるノード）という2つのノードが含まれています。  
 Flow-asserter inノードのボタンをクリックすることでテストが実行され、テストケースの入力値がペイロードに代入されたメッセージオブジェクトが上側のポートから送出されます。メッセージはDelayノード、Functionノードを介してFlow-asserter outノードに到達します。すると、Flow-asserter outノードはメッセージを自身の出力ポートに繋がっているDebugノードに**送らず**、代わりに値を検証します。検証結果はFlow-asserter inノードの下側のポートから送られます。  
 では、テスト以外で実行した場合にはどうなるでしょうか？先程の例で説明すると、Injectノードのボタンを押すと、Delayノード、Functionノードを介してFlow-asserter outノードに到達しますが、ここでは値の検証は**実施せず**、直後のDebugノードにメッセージを**そのまま送出します**。
+
+## Differences with original implementation (https://www.npmjs.com/package/node-red-contrib-flow-asserter)
+
+テストが開始されると、context.global.runtime_profile が値「TEST」に設定されます。
+
+テストが終了したら、context.global.runtime_profile を値「PROD」に設定します。
+
+モックの場合 (たとえば https://www.npmjs.com/package/autana-testing-call-or-mock と組み合わせて使用​​する場合)、ノードは context.global.runtime_profile を評価して、現在の実行プロファイル (TEST) を検証できます。 、製品 | null)
 
 ## Usage
 
@@ -74,6 +84,7 @@ npm install node-red-contrib-flow-asserter
 ## Author
 
 [s1r-J](https://github.com/s1r-J)
+[GiBi] (https://github.com/gigonzalezs)
 
 ## Languages
 

@@ -1,17 +1,20 @@
-node-red-contrib-flow-asserter
+
+autana-flow-asserter
 ====
+
+Warning: this is a fork of https://www.npmjs.com/package/node-red-contrib-flow-asserter
 
 This module is a node module that supports flow testing on the Node-RED editor UI.
 
 ## Description
 
-node-red-contrib-flow-asserter is a node module that assists in testing the Node-RED flow in the editor.
+autana-flow-asserter is a node module that assists in testing the Node-RED flow in the editor.
 
 When using Node-RED, the user creates a flow by connecting several nodes on the editor.
 And many users will test that the flow is doing what they want.
 How do you run the tests at this time? Is it like you check debug node by pressing the inject node's button, change the value and try again? In some cases, you may want to rewire the wire of the node just before the debug node so that unnecessary flows are not executed during the test. In addition, once you have modified your flow after starting production, you may need to repeat the test with all values again. In any case, Node-RED can be very annoying when trying to test a flow.
 
-This module eliminates the hassle of such a flow test. There are two features of node-red-contrib-flow-asserter.
+This module eliminates the hassle of such a flow test. There are two features of autana-flow-asserter.
 
 1. Multiple test-cases can be executed with a single button click operation.
 2. During test execution, no message is sent to the flow after the position where the value is to be asserted.
@@ -29,6 +32,14 @@ The second feature is that it saves you the trouble of modifying the flow when s
 This module has 2 nodes, **flow-asserter in node**(the node with button) and **flow-asserter out node**(the node with one input port and one output port).
 The test is executed by clicking the button of flow-asserter in node, and the message object with the test case input value substituted in payload is sent from the upper port. The message reaches flow-asserter out node via delay node and function node. Flow-asserter out node then does **not** send the message to debug node connected to its output port. Instead of that, the node verifies the value. The verification result is sent from the lower port of flow-asserter in node.
 So what happens if you run it not during testing? As explained in the previous example, when the button of inject node is pressed, flow-asserter out node is reached via delay node and function node, but here the value verification is **not** performed and the message is passed to debug node without doing anything.
+
+## Differences with original implementation (https://www.npmjs.com/package/node-red-contrib-flow-asserter)
+
+When the test starts, sets context.global.runtime_profile to the value "TEST"
+
+When the test finish, sets context.global.runtime_profile to the value "PROD"
+
+In case of mocking (for example using in combination with https://www.npmjs.com/package/autana-testing-call-or-mock), nodes can evaluate context.global.runtime_profile to verify the current execution profile (TEST, PROD | null) 
 
 ## Usage
 
@@ -58,14 +69,14 @@ In this example, the flow consists of inject node, delay node, function node and
 ## Install
 
 ```
-npm install node-red-contrib-flow-asserter
+npm install autana-flow-asserter
 ```
 
-[![NPM](https://nodei.co/npm/node-red-contrib-flow-asserter.png)](https://nodei.co/npm/node-red-contrib-flow-asserter/)
+[![NPM](https://nodei.co/npm/autana-flow-asserter.png)](https://nodei.co/npm/autana-flow-asserter/)
 
 ## Changelog
 
-[Changelog](https://github.com/s1r-J/node-red-contrib-flow-asserter/blob/master/CHANGELOG.md)
+[Changelog](https://github.com/s1r-J/autana-flow-asserter/blob/master/CHANGELOG.md)
 
 ## Licence
 
@@ -74,6 +85,7 @@ npm install node-red-contrib-flow-asserter
 ## Author
 
 [s1r-J](https://github.com/s1r-J)
+[GiBi] (https://github.com/gigonzalezs)
 
 ## Languages
 
