@@ -81,7 +81,7 @@ npm install node-red-contrib-flow-asserter
 
 [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-## Author
+## Contributors
 
 [s1r-J](https://github.com/s1r-J)
 [GiBi] (https://github.com/gigonzalezs)

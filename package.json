@@ -1,6 +1,6 @@
 {
     "name": "node-red-contrib-flow-asserter",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "This module is a node module that supports flow testing on the Node-RED editor UI. You can test the flow with multiple test-cases and without any changes when switching between test  and production.",
     "main": "node.js",
     "scripts": {
@@ -24,16 +24,20 @@
         "flow",
         "test",
         "testcase",
-        "assertion"
+        "assertion",
+        "autana"
     ],
-    "author": "s1r-J",
+    "contributors": [
+        "s1r-J",
+        "Gilbert Gonzalez <gb@autanalabs.com> (http://autanalabs.com)"
+    ],
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/s1r-J/node-red-contrib-flow-asserter.git"
+        "url": "https://github.com/autanalabs/autana-flow-asserter.git"
     },
     "bugs": {
-        "url": "https://github.com/s1r-J/node-red-contrib-flow-asserter/issues"
+        "url": "https://github.com/autanalabs/autana-flow-asserter/issues"
     },
-    "homepage": "https://github.com/s1r-J/node-red-contrib-flow-asserter#readme"
+    "homepage": "https://github.com/autanalabs/autana-flow-asserter#readme"
 }
